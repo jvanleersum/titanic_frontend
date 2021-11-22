@@ -19,7 +19,9 @@ st.markdown("## Would you have survived the titanic disaster? Let's find out!")
 st.markdown('We\'ll start with the basic information')
 columns = st.columns(4)
 
-title_list = ['Mrs', "Mr"]
+title_list = ['Mr', 'Mrs', 'Miss', 'Master', 'Don', 'Rev', 'Dr', 'Mme',
+       'Ms', 'Major', 'Lady', 'Sir', 'Mlle', 'Col', 'Capt',
+       'the Countess', 'Jonkheer']
 title = columns[0].selectbox("What's your title?", title_list)
 
 first_name = columns[1].text_input("First name", value="Jane")
