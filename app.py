@@ -24,7 +24,7 @@ title_list = ['Mr', 'Mrs', 'Miss', 'Master', 'Don', 'Rev', 'Dr', 'Mme',
        'the Countess', 'Jonkheer']
 title = columns[0].selectbox("What's your title?", title_list)
 
-first_name = columns[1].text_input("First name", value="Jane")
+first_name = columns[1].text_input("First name", value="John")
 
 sex = columns[2].radio("Male/female", ("male", "female"))
 
@@ -129,3 +129,18 @@ if st.button("Give me the result!"):
         st.error('Unfortunately, you would probably not have survived')
         st.metric("Survival probability", f'{round(survival_probability*100,2)}%')
 
+    my_expander = st.expander(label='But how do you know?')
+    with my_expander:
+        
+        """The predictions are made using a machine learning model called Random Forest, with 200 decision trees with at maximum 4 levels each.
+        A single tree could look like this:
+        """
+        st.image('tree.png')
+        
+        """
+        The outcome of all 200 trees are taken into account when predicting whether the person would have survived.
+        Class 0 represents "not survived" and class 1 represents "survived". The Random Forest uses voting to determine which class was predicted the most, which is the final prediction.
+        
+        The accuracy of the model is approximately 79%, meaning that the model can correctly predict whether the person survived in 79 out of a 100 cases.  
+        """
+        
